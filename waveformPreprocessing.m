@@ -6,7 +6,7 @@ function [W, X, par, parName] = waveformPreprocessing(waveforms,cfg,isolationqua
 % default behavior
 if ~isfield(cfg, 'troughalign'),    cfg.troughalign = 1;        end % alignment at waveform trough
 if ~isfield(cfg, 'interpn'),        cfg.interpn = 10;           end % x10
-if ~isfield(cfg, 'interptype'),     cfg.interptype = 'cubic'; end   % type of interp: 'spline', 'cubic', 'linear' % use cubic or spline, linear is only for comparison purposes
+if ~isfield(cfg, 'interptype'),     cfg.interptype = 'splines'; end   % type of interp: 'splines', 'pchip', 'linear' % used splines by default
 if ~isfield(cfg, 'normalize'),      cfg.normalize = 1;          end % between -1 and 1
 if ~isfield(cfg, 'fsample'),        cfg.fsample = 40000;        end % 40 kHz
 
