@@ -36,13 +36,13 @@ The main script to execute the code is **main_wf_analysis.m**. It first loads th
 
 A typical AP waveform looks like this:
 
-![Not interpolated AP waveform](panels/waveformAnalysisPanels/prototypeWF_notInterpolated.png)
+![Not interpolated AP waveform](https://bytebucket.org/sardid/waveformanalysis/raw/a9e14786519814546c1680d5086b59e986ac1dd0/panels/waveformAnalysisPanels/prototypeWF_notInterpolated.png)
 
 ### >>> Cubic spline interpolation of AP waveforms
 
 A cubicly interpolated (spline) AP waveform looks like this:
 
-![Interpolated AP waveform](panels/waveformAnalysisPanels/prototypeWF_interpolated.png)
+![Interpolated AP waveform](https://bytebucket.org/sardid/waveformanalysis/raw/a9e14786519814546c1680d5086b59e986ac1dd0/panels/waveformAnalysisPanels/prototypeWF_interpolated.png)
 
 The **waveformPreprocessing** function is called with configuration parameters **cfg**:
 
@@ -62,7 +62,7 @@ The **waveformPreprocessing** function returns the interpolated waveforms **W**,
 - par(:,2) contains the **amplitude of peak before depolarization** (currently not used).
 - par(:,3) contains the **time for repolarization**: time interval from the maximum W to the 25% of the peak to trough amplitude during repolarization.
 
-![Waveform measures](panels/waveformAnalysisPanels/waveform_measures.png)
+![Waveform measures](https://bytebucket.org/sardid/waveformanalysis/raw/a9e14786519814546c1680d5086b59e986ac1dd0/panels/waveformAnalysisPanels/waveform_measures.png)
 
 All relevant variables are then included in the **wFpreprocessed** structure.
 
@@ -95,13 +95,13 @@ The output arguments refer to:
 
 The **waveformSeparation** function also creates two plots that are saved as svg files in FIGSDIR subfolder. A raw histogram of the AP waveform measure (not shown here) and a processed histogram with Gaussian fits in which the different modes (cell types) are color-coded (red and blue, respectively for narrow and broad spiking neurons):
 
-![Histogram with highlighted modes](panels/waveformAnalysisPanels/PCA1stComp_sep.png)
+![Histogram with highlighted modes](https://bytebucket.org/sardid/waveformanalysis/raw/a9e14786519814546c1680d5086b59e986ac1dd0/panels/waveformAnalysisPanels/PCA1stComp_sep.png)
 
 ### >>> Color-coded classification of AP waveforms
 
-One each cell type is identified, the main script plots all AP waveforms, while holding the same color code introduced above for narrow and broad spiking cells:
+Once each cell type is identified, the main script plots all AP waveforms, while holding the same color code introduced above for narrow and broad spiking cells:
 
-![Classified waveforms](panels/waveformAnalysisPanels/waveforms.png)
+![Classified waveforms](https://bytebucket.org/sardid/waveformanalysis/raw/a9e14786519814546c1680d5086b59e986ac1dd0/panels/waveformAnalysisPanels/waveforms.png)
 
 ### >>> Code dependencies
 
