@@ -16,13 +16,13 @@ Copyright (C) 2014, Salva Ardid.
 
 ## Intro
 
-The basics of the method are similar to previous attempts, but it is improved with respect to others in at least in some of the following aspects:
+The basics of the method are similar to previous attempts, but it is improved with respect to others in at least some of the following aspects:
 
-1. Bimodality of waveforms was increased and hence better discriminated by including, in addition to the peak to trough duration, the time of repolarization (Fig. 1A and 1B in the paper). We combined the two measures by means of a principal component analysis (PCA). Cell-type discrimination was then based on the first component of the PCA (Fig. 1B and 1D in the paper).
+1. Bimodality of waveforms was enhanced and thus better discriminated by including, in addition to the peak to trough duration, the time of repolarization (Fig. 1A and 1B in the paper). We combined the two measures by means of a principal component analysis (PCA). Cell-type discrimination was then based on the first component of the PCA (Fig. 1B and 1D in the paper).
 
-2. Bimodal distribution of waveform measures are typically analyzed using the Hartigan's Dip test. However, sensitivity in rejecting unimodality is enhanced by using its calibrated version instead, especially when a different proportion exists between the two modes, as it is the case for narrow and broad spiking cells (Fig. 1B and 1C in the paper).
+2. Non-unimodal distribution of waveform measures are typically analyzed using the Hartigan's Dip test. However, sensitivity in rejecting unimodality is enhanced by using its calibrated version instead, especially when a different proportion exists between the two modes, as it is the case for narrow and broad spiking cells (Fig. 1B and 1C in the paper).
 
-3. Unimodality rejection in Hartigan's Dip test (as well as in its calibrated version) is sensitive to discontinuities present in the distribution. For waveform measures it is then essential to previously diminish by non-linear (e.g. cubic) interpolation the discontinuities that are artificially introduced by the sampling frequency of waveforms.
+3. Unimodality rejection in Hartigan's Dip test (as well as in its calibrated version) is sensitive to discontinuities in the distribution. For waveform measures it is then essential to previously diminish by non-linear (e.g. cubic spline) interpolation the discontinuities that are artificially introduced by the sampling frequency of waveforms.
 
 ## Tutorial for the Waveform Analysis Repository
 
@@ -31,8 +31,8 @@ The main script to execute the code is **main_wf_analysis.m**. It first loads th
 - **W**: averaged AP waveforms (1138x52: number of independent recordings including single and multi-units, times the number of samples of their waveform).
 - **X**: time steps of the samples.
 - **isolationquality**: 0-3 categorical code that describes the likelihood that the avg. waveform corresponds to a single unit.
-- **isolationqualityInfo**: meaning of the corresponding numbers. 1) multiunit, 2) mostly single unit, 3) highly isolated single unit, 0) not specified.
-- **datasetname** and **spikechannel**: self-explanatory, identifiers of the datasetname and spikechannel from where the averaged AP waveform was processed.
+- **isolationqualityInfo**: meaning of the corresponding numbers; 1) multiunit, 2) mostly single unit, 3) highly isolated single unit, 0) not specified.
+- **datasetname** and **spikechannel**: self-explanatory; identifiers of the datasetname and spikechannel from where the averaged AP waveform was processed.
 
 A typical AP waveform looks like this:
 
@@ -50,13 +50,13 @@ The **waveformPreprocessing** function is called with configuration parameters *
 - **interpn**: interpolation factor (>1; 10 by default).
 - **interptype**: type of interpolation to be used (spline by default - note that no benefit would be obtained from linear interpolation, see point 3 of the Intro).
 - **normalize**: whether to normalize AP waveforms in [-1,1] (1 by default).
-- **fsample**: sampling frequency (40kHz in our case).
+- **fsample**: sampling frequency (40kHz in this case).
 
 In addition to the configuration parameters, the function needs the avg waveforms **W** and the **isolationquality** from the **wForig** structure (note that only highly isolated single cells are considered):
 
     [W, X, par, parName] = waveformPreprocessing(wForig.W,cfg,wForig.isolationquality);
     
-The **waveformPreprocessing** function returns the interpolated waveforms **W**, the new time steps of the samples **X**, and the computation of distinct measurements from the AP waveform (**par**; and **parnames** that describes those):
+The **waveformPreprocessing** function returns the interpolated waveforms **W**, the new time steps of the samples **X**, and the computation of distinct measurements from the AP waveform (**par**; and **parName** that describes those):
 
 - par(:,1) contains the **peak to trough duration**: time interval from the minimum W to its maximum.
 - par(:,2) contains the **amplitude of peak before depolarization** (currently not used).
@@ -91,7 +91,7 @@ The output arguments refer to:
 
 1. Calibrated Hartigans' dip test: [dipPCA,pdipPCA,xlPCA,xuPCA]. pdipPCA < 0.05 discards unimodality.
 2. Classification of cells into three groups: narrow (ind_narPCA), broad (ind_broPCA) and unclassified  or in-between neurons (ind_fuzPCA) according to a 2-Gaussian model. According to that model, unclassified neurons are those for which the likelihood to be considered narrow is not larger than 10 times the likelihood to be broad, and vice versa.
-3. Akaike's and Bayesian information criteria for the 1-Gaussian vs 2-Gaussian models: [aicPCA_1,aicPCA_2,bicPCA_1,bicPCA_2]. Within a criteria, the lowest value is considered the best model.
+3. Akaike's and Bayesian information criteria for the 1-Gaussian vs 2-Gaussian models: [aicPCA_1,aicPCA_2,bicPCA_1,bicPCA_2]. Within a criterion, the lowest value is considered best.
 
 The **waveformSeparation** function also creates two plots that are saved as svg files in FIGSDIR subfolder. A raw histogram of the AP waveform measure (not shown here) and a processed histogram with Gaussian fits in which the different modes (cell types) are color-coded (red and blue, respectively for narrow and broad spiking neurons):
 
@@ -106,6 +106,3 @@ Once each cell type is identified, the main script plots all AP waveforms, while
 ### >>> Code dependencies
 
 The code of the waveform analysis calls **plot2svg** to save plots as svg files, which is available [here](http://www.mathworks.com/matlabcentral/fileexchange/7401-scalable-vector-graphics--svg--export-of-figures).
-
-
-
