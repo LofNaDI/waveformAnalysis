@@ -2,13 +2,13 @@
 
 The Waveform Analysis (MATLAB / GNU Octave) toolbox classifies broad vs narrow spiking neurons based on the characteristics of extracellularly recorded action potential (AP) waveforms. This toolbox was developed and is maintained by Salva Ardid PhD.
 
-The code reproduces Figure 1 of the paper: *"Ardid, Vinck, Kaping, Marquez, Everling, Womelsdorf (2014) Mapping of functionally characterized cell classes onto canonical circuit operations in primate prefrontal cortex"*, currently under review.
+The code reproduces Figure 1 of the paper: *"Ardid, Vinck, Kaping, Marquez, Everling, Womelsdorf (2014) Mapping of functionally characterized cell classes onto canonical circuit operations in primate prefrontal cortex"*, currently in press in The Journal of Neuroscience.
 
 This toolbox is free but copyrighted by Salva Ardid, and distributed under the terms of the GNU General Public Licence as published by the Free Software Foundation (version 3).
 
 Should you find the toolbox interesting, please try it in your data. Just ensure that any publication using this code properly cites the original manuscript and links to this repository:
 
-> \- Ardid, Vinck, Kaping, Marquez, Everling, Womelsdorf (2014) Mapping of functionally characterized cell classes onto canonical circuit operations in primate prefrontal cortex. Under review.
+> \- Ardid, Vinck, Kaping, Marquez, Everling, Womelsdorf (2015) Mapping of functionally characterized cell classes onto canonical circuit operations in primate prefrontal cortex. *J. Neurosci. In Press*.
 
 > \- [https://bitbucket.org/sardid/waveformanalysis](https://bitbucket.org/sardid/waveformanalysis)
 

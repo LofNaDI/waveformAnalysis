@@ -2,7 +2,7 @@ clear;
 close all;
 clc;
 
-FIGSDIR = 'tmp'; % 'waveformAnalysisPanels';
+FIGSDIR = 'waveformAnalysisPanels';
 if ~exist(FIGSDIR,'dir')
     mkdir(FIGSDIR);
 end
