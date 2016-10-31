@@ -89,13 +89,16 @@ for k=1:numUnits
     iminima=minima(Wk,1); % getting all minima, it's assured that 1 element around isn't nan
     [~,iTmp]=min(Wk(iminima));
     idown=iminima(iTmp);
-    [~,iup]=max(Wk(idown+1:end));
+    % [~,iup]=max(Wk(idown+1:end));
+    % iup=idown+iup;
+    imaxima=maxima(Wk,1);
+    imaxima=imaxima(imaxima>idown);
+    [~,iTmp]=max(Wk(imaxima));
+    iup=imaxima(iTmp);
 
     if isempty(iup) || isempty(idown)
         continue
     end
-
-    iup=idown+iup;
 
     % maximum rate of fall/maximum rate of rise
     % differentiate first:
@@ -111,7 +114,10 @@ for k=1:numUnits
     par(k,1)=X(iup)-X(idown);
     if(par(k,1)<0) % checks to avoid bad surprises
         display('ERROR: negative peak-to-trough duration in the trial')
+        figure,plot(X,Wk)
         display(k)
+        display(idown)
+        display(iup)
     end
     parName{1}='Peak to trough duration';
 
