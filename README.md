@@ -105,4 +105,4 @@ Once each cell type is identified, the main script plots all AP waveforms, while
 
 ### >>> Code dependencies
 
-The code of the waveform analysis calls **plot2svg** to save plots as svg files, which is available [here](http://www.mathworks.com/matlabcentral/fileexchange/7401-scalable-vector-graphics--svg--export-of-figures).
+The code of the waveform analysis calls **fig2svg** to export figures to svg files. More information about it [here](https://github.com/kupiqu/fig2svg).
