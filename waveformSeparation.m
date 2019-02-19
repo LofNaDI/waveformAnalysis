@@ -46,7 +46,7 @@ hl = legend([hb,hp],{'Bootstrap sample',['Dip ',Xlabel]},'Location','Best');
 set(hl,'Visible', 'Off');
 set(gca,'fontSize',16,'LineWidth',1,'TickDir','out','Box','off')
 title(['dip = ',num2str(dip,2), ', p-val = ',num2str(H_p_val_dip,2)],'fontsize',16)
-plot2svg([FIGSDIR,'/',Xname,'_OrigHart.svg']);
+fig2svg([FIGSDIR,'/',Xname,'_OrigHart.svg']);
 
 [dip,cal_H_p_val_dip,xl,xu,boost_dip] = CalibratedHartigansDipSignifTest(X, nboot);
 % optimized histogram
@@ -72,7 +72,7 @@ hl = legend([hb,hp],{'Bootstrap sample',['Dip ',Xlabel]},'Location','Best');
 set(hl,'Visible', 'Off');
 set(gca,'fontSize',16,'LineWidth',1,'TickDir','out','Box','off')
 title(['dip = ',num2str(dip,2), ', p-val = ',num2str(cal_H_p_val_dip,2)],'fontsize',16)
-plot2svg([FIGSDIR,'/',Xname,'_CalibHart.svg']);
+fig2svg([FIGSDIR,'/',Xname,'_CalibHart.svg']);
 
 % optimized histogram
 xmin = min(X);
@@ -158,7 +158,7 @@ else
 end
 set(gca,'fontSize',24,'LineWidth',2,'TickDir','out','Box','off','XTick',-.3:.1:.7,'YTick',0:20:80)
 xlim(Xlim)
-plot2svg([FIGSDIR,'/',Xname,'.svg']);
+fig2svg([FIGSDIR,'/',Xname,'.svg']);
 
 % cutoffs
 area_2a=cumtrapz(xfit,gauss_2a);
@@ -201,4 +201,4 @@ xlabel([Xlabel,' (ms)'],'fontSize',16)
 ylabel('Number of neurons','fontSize',16)
 set(gca,'fontSize',16,'LineWidth',1,'TickDir','out','Box','off','XTick',-.3:.1:.7,'YTick',0:20:80)
 xlim(Xlim)
-plot2svg([FIGSDIR,'/',Xname,'_sep.svg']);
+fig2svg([FIGSDIR,'/',Xname,'_sep.svg']);

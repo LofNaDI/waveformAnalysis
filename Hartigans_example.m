@@ -47,5 +47,5 @@ for a = 3:5 % 1:length(Center)
   ylabel('Count','fontSize',24)
   set(gca,'fontSize',24,'LineWidth',2,'TickDir','out','Box','off','color','none','Xtick',-.6:.3:.6,'Ytick',0:40:140)
   filename = ['HartigansExamplePanels/HartigansRandnExample_',num2str(a),'.svg'];
-  plot2svg(filename)
+  fig2svg(filename)
 end

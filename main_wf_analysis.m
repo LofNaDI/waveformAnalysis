@@ -109,7 +109,7 @@ axis([-0.5,1,-1,1.05])
 xlabel('Time (ms)','fontSize',16)
 ylabel('Normalized voltage','fontSize',16)
 set(gca,'fontSize',16,'LineWidth',1,'TickDir','out','Box','off','YTick',-1:0.5:1)
-plot2svg([FIGSDIR,'/waveforms.svg'])
+fig2svg([FIGSDIR,'/waveforms.svg'])
 
 % example waveform prototype:
 ind_prototype=77;
@@ -123,7 +123,7 @@ set(gca,'layer','top','color','none')
 plot(X(toi),W(sel(Ipc(ind_narPCA(ind_prototype))),toi),'k-','linewidth',2)
 ylim([-1.05,1.05])
 axis off
-plot2svg([FIGSDIR,'/prototypeWF.svg'])
+fig2svg([FIGSDIR,'/prototypeWF.svg'])
 
 figure('color','none','visible','off');
 hold on
@@ -131,7 +131,7 @@ set(gca,'layer','top','color','none')
 plot(X(toi),W(sel(Ipc(ind_narPCA(ind_prototype))),toi),'ko','linewidth',2)
 ylim([-1.05,1.05])
 axis off
-plot2svg([FIGSDIR,'/prototypeWF_interpolated.svg'])
+fig2svg([FIGSDIR,'/prototypeWF_interpolated.svg'])
 
 figure('color','none','visible','off');
 hold on
@@ -139,7 +139,7 @@ set(gca,'layer','top','color','none')
 plot(wForig.X,wForig.W(sel(Ipc(ind_narPCA(ind_prototype))),:),'ko','linewidth',2)
 xlim([-.05,1.325])
 axis off
-plot2svg([FIGSDIR,'/prototypeWF_notInterpolated.svg'])
+fig2svg([FIGSDIR,'/prototypeWF_notInterpolated.svg'])
 
 % tagging celltypes
 
