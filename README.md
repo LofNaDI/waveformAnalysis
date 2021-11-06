@@ -10,7 +10,7 @@ Should you find the toolbox interesting, please try it in your data. Just ensure
 
 > \- Ardid, Vinck, Kaping, Marquez, Everling, Womelsdorf (2015) Mapping of functionally characterized cell classes onto canonical circuit operations in primate prefrontal cortex. [*J. Neurosci.*, 35: 2975-91](http://www.jneurosci.org/content/35/7/2975)
 
-> \- [https://bitbucket.org/sardid/waveformanalysis](https://bitbucket.org/sardid/waveformanalysis)
+> \- [https://github.com/LofNaDI/waveformAnalysis.git](https://github.com/LofNaDI/waveformAnalysis.git)
 
 Copyright (C) 2014-2015, Salva Ardid.
 
