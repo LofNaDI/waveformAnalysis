@@ -9,7 +9,7 @@ This toolbox is free but copyrighted by Salva Ardid, and distributed under the t
 Should you find the toolbox interesting, please try it in your data. Just ensure that any publication using this code properly cites the original manuscript and links to this repository:
 
 > \- Ardid, Vinck, Kaping, Marquez, Everling, Womelsdorf (2015) Mapping of functionally characterized cell classes onto canonical circuit operations in primate prefrontal cortex. [*J. Neurosci.*, 35: 2975-91](http://www.jneurosci.org/content/35/7/2975)
-
+> 
 > \- [https://github.com/LofNaDI/waveformAnalysis.git](https://github.com/LofNaDI/waveformAnalysis.git)
 
 Copyright (C) 2014-2015, Salva Ardid.
